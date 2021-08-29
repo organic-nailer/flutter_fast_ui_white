@@ -13,7 +13,6 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue,
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,

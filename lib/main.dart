@@ -54,8 +54,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: materialWhite,
+        primarySwatch: accentColor,
+        accentColor: accentColor,
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          backgroundColor: materialWhite,
+          backwardsCompatibility: false,
+          elevation: 0,
+          iconTheme: IconThemeData(
+            color: typography.black.headline5!.color
+          ),
+          titleTextStyle: typography.black.headline6
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: activeBlack,
           unselectedItemColor: inactiveBlack
@@ -63,70 +73,20 @@ class MyApp extends StatelessWidget {
         // buttonTheme は現在使われていないのでボタンごとに指定
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            textStyle: accentTextTheme.button,
-            primary: accentColor,
-            onPrimary: accentTextTheme.button!.color,
             elevation: 0,
             shadowColor: Colors.transparent
           )
-        ),
-        outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-            primary: accentColor,
-          )
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            primary: accentColor
-          )
-        ),
-        floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: accentColor,
-          foregroundColor: accentTextTheme.button!.color
         ),
         cardTheme: CardTheme(
           elevation: 0,
           shape: RoundedRectangleBorder(
             side: BorderSide(
               color: borderGrey,
-              width: 2
+              width: 1
             ),
             borderRadius: BorderRadius.circular(8)
           )
         ),
-        toggleableActiveColor: accentColor,
-        checkboxTheme: CheckboxThemeData(
-          fillColor: MaterialStateProperty.resolveWith(resolveAccentToggleColor)
-        ),
-        radioTheme: RadioThemeData(
-            fillColor: MaterialStateProperty.resolveWith(resolveAccentToggleColor)
-        ),
-        switchTheme: SwitchThemeData(
-          thumbColor: MaterialStateProperty.resolveWith((states) {
-            if(states.containsAll([MaterialState.disabled, MaterialState.selected])) return accentColor.shade200;
-            if(states.contains(MaterialState.disabled)) return Colors.grey.shade400;
-            if(states.contains(MaterialState.selected)) return accentColor.shade600;
-            return Colors.grey.shade50;
-          }),
-          trackColor: MaterialStateProperty.resolveWith((states) {
-            if(states.containsAll([MaterialState.disabled, MaterialState.selected])) return accentColor.shade200.withAlpha(128);
-            if(states.contains(MaterialState.disabled)) return Color(0xFFC8C8C8);
-            if(states.contains(MaterialState.selected)) return accentColor.withAlpha(128);
-            return Color(0xFF9B9B9B);
-          })
-        ),
-        sliderTheme: SliderThemeData(
-          activeTrackColor: accentColor.shade600,
-          inactiveTrackColor: accentColor.withAlpha(128),
-          thumbColor: accentColor.shade600,
-          disabledActiveTrackColor: accentColor.shade200,
-          disabledInactiveTrackColor: Color(0xFFC8C8C8),
-          disabledThumbColor: accentColor.shade200,
-        ),
-        timePickerTheme: TimePickerThemeData(
-          dialHandColor: accentColor,
-
-        )
       ),
       home: SampleListPage(),
     );
@@ -139,7 +99,7 @@ class SampleListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("MaterialFastUI White"),),
+      appBar: AppBar(title: Text("MaterialFastUI White"), elevation: 4,),
       body: ListView.builder(
         itemCount: sampleList.length,
         itemBuilder: (context, index) {
