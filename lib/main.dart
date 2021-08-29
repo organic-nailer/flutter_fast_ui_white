@@ -65,6 +65,10 @@ class MyApp extends StatelessWidget {
           style: TextButton.styleFrom(
             primary: accentColor
           )
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: accentColor,
+          foregroundColor: accentTextTheme.button!.color
         )
       ),
       home: SampleListPage(),

@@ -10,6 +10,7 @@ class ButtonPage extends StatefulWidget {
 class _ButtonPageState extends State<ButtonPage> {
   bool _isDisabled = false;
   bool _withIcon = false;
+  bool _extended = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +75,20 @@ class _ButtonPageState extends State<ButtonPage> {
           ),
         ),
       ),
+      floatingActionButton: _extended
+          ? FloatingActionButton.extended(onPressed: () {
+              setState(() {
+                _extended = false;
+              });
+            }, label: Text("Extended"), icon: Icon(Icons.add),)
+          : FloatingActionButton(
+              child: Icon(Icons.add),
+              onPressed: () {
+                setState(() {
+                  _extended = true;
+                });
+              },
+            ),
     );
   }
 }
