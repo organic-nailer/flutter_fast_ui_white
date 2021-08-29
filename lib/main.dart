@@ -4,6 +4,7 @@ import 'package:flutter_fast_ui_white/pages/app_bar_top_page.dart';
 import 'package:flutter_fast_ui_white/pages/bottom_navigation_page.dart';
 import 'package:flutter_fast_ui_white/pages/button_page.dart';
 import 'package:flutter_fast_ui_white/pages/card_page.dart';
+import 'package:flutter_fast_ui_white/pages/chips_page.dart';
 import 'package:flutter_fast_ui_white/pages/inputs_except_text_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -41,53 +42,47 @@ class MyApp extends StatelessWidget {
   final Color borderGrey = const Color(0xFFC8C8C8);
 
   Color resolveAccentToggleColor(Set<MaterialState> states) {
-    if(states.contains(MaterialState.disabled)) return disabledBlack;
-    if(states.contains(MaterialState.selected)) return accentColor;
+    if (states.contains(MaterialState.disabled)) return disabledBlack;
+    if (states.contains(MaterialState.selected)) return accentColor;
     return inactiveBlack;
   }
 
   @override
   Widget build(BuildContext context) {
-    final accentIsDark = ThemeData.estimateBrightnessForColor(accentColor) == Brightness.dark;
+    final accentIsDark =
+        ThemeData.estimateBrightnessForColor(accentColor) == Brightness.dark;
     final typography = Typography.material2018(platform: defaultTargetPlatform);
     final accentTextTheme = accentIsDark ? typography.white : typography.black;
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: accentColor,
-        accentColor: accentColor,
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          backgroundColor: materialWhite,
-          backwardsCompatibility: false,
-          elevation: 0,
-          iconTheme: IconThemeData(
-            color: typography.black.headline5!.color
-          ),
-          titleTextStyle: typography.black.headline6
-        ),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          selectedItemColor: activeBlack,
-          unselectedItemColor: inactiveBlack
-        ),
-        // buttonTheme は現在使われていないのでボタンごとに指定
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            elevation: 0,
-            shadowColor: Colors.transparent
-          )
-        ),
-        cardTheme: CardTheme(
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: borderGrey,
-              width: 1
-            ),
-            borderRadius: BorderRadius.circular(8)
-          )
-        ),
-      ),
+          primarySwatch: accentColor,
+          accentColor: accentColor,
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: AppBarTheme(
+              backgroundColor: materialWhite,
+              backwardsCompatibility: false,
+              elevation: 0,
+              iconTheme:
+                  IconThemeData(color: typography.black.headline5!.color),
+              titleTextStyle: typography.black.headline6),
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedItemColor: activeBlack,
+              unselectedItemColor: inactiveBlack),
+          // buttonTheme は現在使われていないのでボタンごとに指定
+          elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                  elevation: 0, shadowColor: Colors.transparent)),
+          cardTheme: CardTheme(
+              elevation: 0,
+              shape: RoundedRectangleBorder(
+                  side: BorderSide(color: borderGrey, width: 1),
+                  borderRadius: BorderRadius.circular(8))),
+          chipTheme: ChipThemeData.fromDefaults(
+                  secondaryColor: accentColor,
+                  brightness: Brightness.light,
+                  labelStyle: typography.black.bodyText1!)
+              .copyWith(elevation: 0, pressElevation: 0)),
       home: SampleListPage(),
     );
   }
@@ -99,14 +94,18 @@ class SampleListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("MaterialFastUI White"), elevation: 4,),
+      appBar: AppBar(
+        title: Text("MaterialFastUI White"),
+        elevation: 4,
+      ),
       body: ListView.builder(
         itemCount: sampleList.length,
         itemBuilder: (context, index) {
           final data = sampleList[index];
           return InkWell(
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: data.builder));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: data.builder));
             },
             child: ListTile(
               title: Text(data.name),
@@ -123,6 +122,7 @@ class SampleListPage extends StatelessWidget {
     SampleData("Button", (_) => ButtonPage()),
     SampleData("CardPage", (_) => CardPage()),
     SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
+    SampleData("Chips", (_) => ChipsPage()),
   ];
 }
 
