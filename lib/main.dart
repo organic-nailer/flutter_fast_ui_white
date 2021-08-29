@@ -4,8 +4,11 @@ import 'package:flutter_fast_ui_white/pages/app_bar_top_page.dart';
 import 'package:flutter_fast_ui_white/pages/bottom_navigation_page.dart';
 import 'package:flutter_fast_ui_white/pages/button_page.dart';
 import 'package:flutter_fast_ui_white/pages/card_page.dart';
+import 'package:flutter_fast_ui_white/pages/inputs_except_text_page.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
+  initializeDateFormatting("ja_JP");
   runApp(MyApp());
 }
 
@@ -30,12 +33,19 @@ class MyApp extends StatelessWidget {
   final Color inactiveBlack = const Color(0x99000000);
   final Color disabledBlack = const Color(0x61000000);
 
-  final Color accentColor = Colors.deepPurple;
+  static final MaterialColor accentColor = Colors.deepPurple;
   // from: https://material.io/design/interaction/states.html#pressed
   final Color overlayOnDark = const Color(0x52FFFFFF);
   final Color overlayOnLight = const Color(0x29000000);
 
   final Color borderGrey = const Color(0xFFC8C8C8);
+
+  Color resolveAccentToggleColor(Set<MaterialState> states) {
+    if(states.contains(MaterialState.disabled)) return disabledBlack;
+    if(states.contains(MaterialState.selected)) return accentColor;
+    return inactiveBlack;
+  }
+
   @override
   Widget build(BuildContext context) {
     final accentIsDark = ThemeData.estimateBrightnessForColor(accentColor) == Brightness.dark;
@@ -83,6 +93,39 @@ class MyApp extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(8)
           )
+        ),
+        toggleableActiveColor: accentColor,
+        checkboxTheme: CheckboxThemeData(
+          fillColor: MaterialStateProperty.resolveWith(resolveAccentToggleColor)
+        ),
+        radioTheme: RadioThemeData(
+            fillColor: MaterialStateProperty.resolveWith(resolveAccentToggleColor)
+        ),
+        switchTheme: SwitchThemeData(
+          thumbColor: MaterialStateProperty.resolveWith((states) {
+            if(states.containsAll([MaterialState.disabled, MaterialState.selected])) return accentColor.shade200;
+            if(states.contains(MaterialState.disabled)) return Colors.grey.shade400;
+            if(states.contains(MaterialState.selected)) return accentColor.shade600;
+            return Colors.grey.shade50;
+          }),
+          trackColor: MaterialStateProperty.resolveWith((states) {
+            if(states.containsAll([MaterialState.disabled, MaterialState.selected])) return accentColor.shade200.withAlpha(128);
+            if(states.contains(MaterialState.disabled)) return Color(0xFFC8C8C8);
+            if(states.contains(MaterialState.selected)) return accentColor.withAlpha(128);
+            return Color(0xFF9B9B9B);
+          })
+        ),
+        sliderTheme: SliderThemeData(
+          activeTrackColor: accentColor.shade600,
+          inactiveTrackColor: accentColor.withAlpha(128),
+          thumbColor: accentColor.shade600,
+          disabledActiveTrackColor: accentColor.shade200,
+          disabledInactiveTrackColor: Color(0xFFC8C8C8),
+          disabledThumbColor: accentColor.shade200,
+        ),
+        timePickerTheme: TimePickerThemeData(
+          dialHandColor: accentColor,
+
         )
       ),
       home: SampleListPage(),
@@ -119,6 +162,7 @@ class SampleListPage extends StatelessWidget {
     SampleData("BottomNavigation", (_) => BottomNavigationPage()),
     SampleData("Button", (_) => ButtonPage()),
     SampleData("CardPage", (_) => CardPage()),
+    SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
   ];
 }
 
