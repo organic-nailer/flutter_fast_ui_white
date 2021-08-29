@@ -7,6 +7,7 @@ import 'package:flutter_fast_ui_white/pages/button_page.dart';
 import 'package:flutter_fast_ui_white/pages/card_page.dart';
 import 'package:flutter_fast_ui_white/pages/chips_page.dart';
 import 'package:flutter_fast_ui_white/pages/inputs_except_text_page.dart';
+import 'package:flutter_fast_ui_white/pages/list_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
@@ -83,7 +84,9 @@ class MyApp extends StatelessWidget {
                   secondaryColor: accentColor,
                   brightness: Brightness.light,
                   labelStyle: typography.black.bodyText1!)
-              .copyWith(elevation: 0, pressElevation: 0)),
+              .copyWith(elevation: 0, pressElevation: 0),
+          dividerTheme:
+              DividerThemeData(color: Color(0x1F000000), thickness: 2)),
       home: SampleListPage(),
     );
   }
@@ -124,7 +127,8 @@ class SampleListPage extends StatelessWidget {
     SampleData("CardPage", (_) => CardPage()),
     SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
     SampleData("Chips", (_) => ChipsPage()),
-    SampleData("Dialogs", (_) => AlertsPage())
+    SampleData("Dialogs", (_) => AlertsPage()),
+    SampleData("List", (_) => ListPage())
   ];
 }
 
