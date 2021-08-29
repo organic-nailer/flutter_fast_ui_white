@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fast_ui_white/pages/alerts_page.dart';
 import 'package:flutter_fast_ui_white/pages/app_bar_top_page.dart';
 import 'package:flutter_fast_ui_white/pages/bottom_navigation_page.dart';
 import 'package:flutter_fast_ui_white/pages/button_page.dart';
@@ -123,6 +124,7 @@ class SampleListPage extends StatelessWidget {
     SampleData("CardPage", (_) => CardPage()),
     SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
     SampleData("Chips", (_) => ChipsPage()),
+    SampleData("Dialogs", (_) => AlertsPage())
   ];
 }
 
