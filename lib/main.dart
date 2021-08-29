@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/pages/app_bar_top_page.dart';
 import 'package:flutter_fast_ui_white/pages/bottom_navigation_page.dart';
 import 'package:flutter_fast_ui_white/pages/button_page.dart';
+import 'package:flutter_fast_ui_white/pages/card_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
   // from: https://material.io/design/interaction/states.html#pressed
   final Color overlayOnDark = const Color(0x52FFFFFF);
   final Color overlayOnLight = const Color(0x29000000);
+
+  final Color borderGrey = const Color(0xFFC8C8C8);
   @override
   Widget build(BuildContext context) {
     final accentIsDark = ThemeData.estimateBrightnessForColor(accentColor) == Brightness.dark;
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: materialWhite,
+        scaffoldBackgroundColor: Colors.white,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: activeBlack,
           unselectedItemColor: inactiveBlack
@@ -69,6 +73,16 @@ class MyApp extends StatelessWidget {
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: accentColor,
           foregroundColor: accentTextTheme.button!.color
+        ),
+        cardTheme: CardTheme(
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: borderGrey,
+              width: 2
+            ),
+            borderRadius: BorderRadius.circular(8)
+          )
         )
       ),
       home: SampleListPage(),
@@ -104,6 +118,7 @@ class SampleListPage extends StatelessWidget {
     SampleData("AppBar:Top", (_) => AppBarTopPage()),
     SampleData("BottomNavigation", (_) => BottomNavigationPage()),
     SampleData("Button", (_) => ButtonPage()),
+    SampleData("CardPage", (_) => CardPage()),
   ];
 }
 
