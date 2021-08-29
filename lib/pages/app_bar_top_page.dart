@@ -10,7 +10,6 @@ class AppBarTopPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("AppBar Top"),
         shape: Border(bottom: BorderSide(color: Color.fromARGB(255, 245, 245, 245), width: 1)),
-        elevation: 0,
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline)),
           IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
