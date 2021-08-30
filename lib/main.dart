@@ -8,6 +8,7 @@ import 'package:flutter_fast_ui_white/pages/card_page.dart';
 import 'package:flutter_fast_ui_white/pages/chips_page.dart';
 import 'package:flutter_fast_ui_white/pages/inputs_except_text_page.dart';
 import 'package:flutter_fast_ui_white/pages/list_page.dart';
+import 'package:flutter_fast_ui_white/pages/typography_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
@@ -128,7 +129,8 @@ class SampleListPage extends StatelessWidget {
     SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
     SampleData("Chips", (_) => ChipsPage()),
     SampleData("Dialogs", (_) => AlertsPage()),
-    SampleData("List", (_) => ListPage())
+    SampleData("List", (_) => ListPage()),
+    SampleData("Typography", (_) => TypographyPage())
   ];
 }
 
