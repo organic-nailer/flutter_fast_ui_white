@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/main.dart';
+import 'package:flutter_fast_ui_white/widgets/fast_picker.dart';
 import "package:intl/intl.dart";
 
 class InputsExceptTextPage extends StatefulWidget {
@@ -30,11 +31,14 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
               Row(
                 children: [
                   Text("Disabled"),
-                  Checkbox(value: _isDisabled, onChanged: (value) {
-                    setState(() {
-                      _isDisabled = value ?? false;
-                    });
-                  },)
+                  Checkbox(
+                    value: _isDisabled,
+                    onChanged: (value) {
+                      setState(() {
+                        _isDisabled = value ?? false;
+                      });
+                    },
+                  )
                 ],
               ),
               Row(
@@ -42,60 +46,71 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Checkbox"),
-                  Checkbox(value: _topToggle, onChanged: _isDisabled ? null : (value) {
-                    setState(() {
-                      _topToggle = value ?? false;
-                    });
-                  }),
+                  Checkbox(
+                      value: _topToggle,
+                      onChanged: _isDisabled
+                          ? null
+                          : (value) {
+                              setState(() {
+                                _topToggle = value ?? false;
+                              });
+                            }),
                   Text("Switch"),
-                  Switch(value: _topToggle, onChanged: _isDisabled ? null : (value) {
-                    setState(() {
-                      _topToggle = value;
-                    });
-                  }),
+                  Switch(
+                      value: _topToggle,
+                      onChanged: _isDisabled
+                          ? null
+                          : (value) {
+                              setState(() {
+                                _topToggle = value;
+                              });
+                            }),
                 ],
               ),
               Text("Radio Button"),
-              for(int i = 1; i <= 2; i++)
+              for (int i = 1; i <= 2; i++)
                 ListTile(
-                  title: Text(
-                    'Radio $i',
-                    style: Theme.of(context).textTheme.subtitle1,
-                  ),
-                  leading: Radio(
-                    value: i,
-                    groupValue: _radioValue,
-                    onChanged: _isDisabled ? null : (int? value) {
-                      setState(() {
-                        _radioValue = value ?? 1;
-                      });
-                    },
-                  )
-                ),
-              Slider(value: _sliderValue, onChanged: _isDisabled ? null : (value) {
-                setState(() {
-                  _sliderValue = value;
-                });
-              }),
+                    title: Text(
+                      'Radio $i',
+                      style: Theme.of(context).textTheme.subtitle1,
+                    ),
+                    leading: Radio(
+                      value: i,
+                      groupValue: _radioValue,
+                      onChanged: _isDisabled
+                          ? null
+                          : (int? value) {
+                              setState(() {
+                                _radioValue = value ?? 1;
+                              });
+                            },
+                    )),
+              Slider(
+                  value: _sliderValue,
+                  onChanged: _isDisabled
+                      ? null
+                      : (value) {
+                          setState(() {
+                            _sliderValue = value;
+                          });
+                        }),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () async {
-                        final result = await showDatePicker(
-                            context: context,
-                            initialDate: _date,
-                            firstDate: DateTime(2010, 1, 1,),
-                            lastDate: DateTime(2025, 12, 31),
-                          builder: (context, child) {
-                            return Theme(
-                              data: ThemeData(primarySwatch: MyApp.accentColor),
-                              child: child!,
-                            );
-                          },
+                        final result = await showFastDatePicker(
+                          context: context,
+                          initialDate: _date,
+                          firstDate: DateTime(
+                            2010,
+                            1,
+                            1,
+                          ),
+                          lastDate: DateTime(2025, 12, 31),
                         );
-                        if(result != null) {
+                        if (result != null) {
                           setState(() {
                             _date = result;
                           });
@@ -104,21 +119,15 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                       child: Text(formatter.format(_date)),
                     ),
                   ),
-                  SizedBox(width: 16,),
+                  SizedBox(
+                    width: 16,
+                  ),
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () async {
-                        final result = await showTimePicker(
-                          builder: (context, child) {
-                            return Theme(
-                              data: ThemeData(primarySwatch: MyApp.accentColor),
-                              child: child!,
-                            );
-                          },
-                            context: context,
-                          initialTime: _time
-                        );
-                        if(result != null) {
+                        final result = await showFastTimePicker(
+                            context: context, initialTime: _time);
+                        if (result != null) {
                           setState(() {
                             _time = result;
                           });
