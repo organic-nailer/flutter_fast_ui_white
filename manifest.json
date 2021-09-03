@@ -1,6 +1,6 @@
 {
-    "name": "flutter_fast_ui_white",
-    "short_name": "flutter_fast_ui_white",
+    "name": "example",
+    "short_name": "example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
