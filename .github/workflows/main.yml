@@ -11,6 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Move Example Directory
+      run: cd ./example
+
     - name: Setup Flutter
       uses: subosito/flutter-action@v1
 
