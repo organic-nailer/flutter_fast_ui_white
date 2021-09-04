@@ -4,6 +4,14 @@ Easy Material White Theme
 
 ## Getting Started
 
+in pubspec.yaml
+```
+dependencies:
+  flutter_fast_ui_white:
+    git:
+      url: https://github.com/organic-nailer/flutter_fast_ui_white
+```
+
 ```dart
 void main() {
   runApp(FastTheme(
