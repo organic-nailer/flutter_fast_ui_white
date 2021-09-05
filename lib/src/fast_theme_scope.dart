@@ -24,9 +24,10 @@ class FastTheme extends InheritedWidget {
     return ThemeData(
         primarySwatch: accentColor,
         accentColor: accentColor,
+        typography: typography,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
-            backgroundColor: materialWhite,
+            backgroundColor: FastTheme.materialWhite,
             backwardsCompatibility: false,
             elevation: 0,
             iconTheme: IconThemeData(color: typography.black.headline5!.color),
@@ -48,7 +49,18 @@ class FastTheme extends InheritedWidget {
                 brightness: Brightness.light,
                 labelStyle: typography.black.bodyText1!)
             .copyWith(elevation: 0, pressElevation: 0),
-        dividerTheme: DividerThemeData(color: Color(0x1F000000), thickness: 2));
+        dividerTheme: DividerThemeData(color: Color(0x1F000000), thickness: 2),
+        inputDecorationTheme: InputDecorationTheme(
+            contentPadding:
+                EdgeInsets.only(left: 16, right: 12, top: 12, bottom: 12),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(8.0))),
+        tabBarTheme: TabBarTheme(
+            labelColor: accentColor,
+            unselectedLabelColor: _inactiveBlack,
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            indicator: UnderlineTabIndicator(
+                borderSide: BorderSide(color: accentColor, width: 2))));
   }
 
   ThemeData _createFastThemeDark(MaterialColor accent) {
