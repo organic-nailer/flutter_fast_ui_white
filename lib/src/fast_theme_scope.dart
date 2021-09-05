@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 class FastTheme extends InheritedWidget {
   final MaterialColor accentColor;
   late final ThemeData theme;
+  late final ThemeData darkTheme;
   final Widget child;
   FastTheme({required this.accentColor, required this.child})
       : super(child: child) {
     theme = _createFastTheme(accentColor);
+    darkTheme = _createFastThemeDark(accentColor);
   }
 
   static FastTheme of(BuildContext context) =>
@@ -20,6 +22,39 @@ class FastTheme extends InheritedWidget {
   ThemeData _createFastTheme(MaterialColor accent) {
     final typography = Typography.material2018(platform: defaultTargetPlatform);
     return ThemeData(
+        primarySwatch: accentColor,
+        accentColor: accentColor,
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+            backgroundColor: materialWhite,
+            backwardsCompatibility: false,
+            elevation: 0,
+            iconTheme: IconThemeData(color: typography.black.headline5!.color),
+            titleTextStyle: typography.black.headline6),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            selectedItemColor: _activeBlack,
+            unselectedItemColor: _inactiveBlack),
+        // buttonTheme は現在使われていないのでボタンごとに指定
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                elevation: 0, shadowColor: Colors.transparent)),
+        cardTheme: CardTheme(
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                side: BorderSide(color: _borderGrey, width: 1),
+                borderRadius: BorderRadius.circular(8))),
+        chipTheme: ChipThemeData.fromDefaults(
+                secondaryColor: accentColor,
+                brightness: Brightness.light,
+                labelStyle: typography.black.bodyText1!)
+            .copyWith(elevation: 0, pressElevation: 0),
+        dividerTheme: DividerThemeData(color: Color(0x1F000000), thickness: 2));
+  }
+
+  ThemeData _createFastThemeDark(MaterialColor accent) {
+    final typography = Typography.material2018(platform: defaultTargetPlatform);
+    return ThemeData(
+        brightness: Brightness.dark,
         primarySwatch: accentColor,
         accentColor: accentColor,
         scaffoldBackgroundColor: Colors.white,

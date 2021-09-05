@@ -83,6 +83,18 @@ class TypographyPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.caption,
                 ),
                 Text(typeInfo(Theme.of(context).textTheme.caption)),
+                Divider(),
+                Text(
+                  "SubTitle1",
+                  style: Theme.of(context).textTheme.subtitle1,
+                ),
+                Text(typeInfo(Theme.of(context).textTheme.subtitle1)),
+                Divider(),
+                Text(
+                  "SubTitle2",
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+                Text(typeInfo(Theme.of(context).textTheme.subtitle2)),
               ],
             ),
           ),
