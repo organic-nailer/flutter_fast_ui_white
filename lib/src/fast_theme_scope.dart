@@ -25,6 +25,7 @@ class FastTheme extends InheritedWidget {
         primarySwatch: accentColor,
         accentColor: accentColor,
         typography: typography,
+        materialTapTargetSize: MaterialTapTargetSize.padded,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
             backgroundColor: FastTheme.materialWhite,
