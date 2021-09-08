@@ -18,6 +18,7 @@ void main() {
   initializeDateFormatting("ja_JP");
   runApp(FastTheme(
     accentColor: Colors.pink,
+    themeMode: ThemeMode.light,
     child: MyApp(),
   ));
 }

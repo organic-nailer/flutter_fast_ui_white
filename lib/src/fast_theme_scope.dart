@@ -1,23 +1,52 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+class FastThemeData {
+  final MaterialColor accentColor;
+  final bool isDark;
+  final ThemeData theme;
+  final ThemeData darkTheme;
+  late final Color nonColoredAccent;
+  FastThemeData(this.accentColor, this.isDark, this.theme, this.darkTheme,
+      this.nonColoredAccent);
+
+  FastThemeData.from(FastTheme fastTheme, Brightness platformBrightness)
+      : accentColor = fastTheme.accentColor,
+        isDark = fastTheme.themeMode == ThemeMode.dark ||
+            (fastTheme.themeMode == ThemeMode.system &&
+                platformBrightness == Brightness.dark),
+        theme = fastTheme.theme,
+        darkTheme = fastTheme.darkTheme {
+    nonColoredAccent = isDark ? Colors.white : Colors.black;
+  }
+}
+
 class FastTheme extends InheritedWidget {
   final MaterialColor accentColor;
+  final ThemeMode themeMode;
   late final ThemeData theme;
   late final ThemeData darkTheme;
+  late final Color nonColoredAccent;
   final Widget child;
-  FastTheme({required this.accentColor, required this.child})
+  FastTheme(
+      {required this.accentColor, required this.themeMode, required this.child})
       : super(child: child) {
     theme = _createFastTheme(accentColor);
     darkTheme = _createFastThemeDark(accentColor);
+    nonColoredAccent = Colors.black;
   }
 
-  static FastTheme of(BuildContext context) =>
-      context.dependOnInheritedWidgetOfExactType<FastTheme>() as FastTheme;
+  static FastThemeData of(BuildContext context) {
+    final fastTheme =
+        context.dependOnInheritedWidgetOfExactType<FastTheme>() as FastTheme;
+    // MediaQuery経由で端末のテーマを取得する
+    return FastThemeData.from(
+        fastTheme, MediaQuery.platformBrightnessOf(context));
+  }
 
   @override
   bool updateShouldNotify(FastTheme oldWidget) =>
-      oldWidget.accentColor != accentColor;
+      oldWidget.accentColor != accentColor || oldWidget.themeMode != themeMode;
 
   ThemeData _createFastTheme(MaterialColor accent) {
     final typography = Typography.material2018(platform: defaultTargetPlatform);
@@ -64,6 +93,7 @@ class FastTheme extends InheritedWidget {
                 borderSide: BorderSide(color: accentColor, width: 2))));
   }
 
+  // WIP
   ThemeData _createFastThemeDark(MaterialColor accent) {
     final typography = Typography.material2018(platform: defaultTargetPlatform);
     return ThemeData(
