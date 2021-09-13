@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class AlertsPage extends StatelessWidget {
@@ -8,6 +9,7 @@ class AlertsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Alerts"),
+        actions: const [ThemeSwitcher()],
       ),
       body: Center(
         child: Column(

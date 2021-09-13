@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/flutter_fast_ui_white.dart';
 
@@ -14,6 +15,7 @@ class _TextFieldPageState extends State<TextFieldPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Text Field"),
+        actions: const [ThemeSwitcher()],
       ),
       body: SingleChildScrollView(
         child: Padding(

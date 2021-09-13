@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigationPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Bottom Navigation"),
+        actions: const [ThemeSwitcher()],
       ),
       body: Center(
         child: Row(

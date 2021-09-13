@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fast_ui_white/src/fast_theme.dart';
 
 class FastAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
@@ -34,13 +35,16 @@ class FastAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = FastTheme.of(context).isDark;
     return AppBar(
       leading: leading,
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: title,
-      shape: const Border(
-          bottom:
-              BorderSide(color: Color.fromARGB(255, 245, 245, 245), width: 1)),
+      shape: isDark
+          ? null
+          : const Border(
+              bottom: BorderSide(
+                  color: Color.fromARGB(255, 245, 245, 245), width: 1)),
       actions: actions,
       flexibleSpace: flexibleSpace,
       bottom: bottom,

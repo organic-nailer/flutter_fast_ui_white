@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:example/pages/alerts_page.dart';
 import 'package:example/pages/app_bar_top_page.dart';
 import 'package:example/pages/bottom_navigation_page.dart';
@@ -16,11 +17,7 @@ import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
   initializeDateFormatting("ja_JP");
-  runApp(FastTheme(
-    accentColor: Colors.pink,
-    themeMode: ThemeMode.light,
-    materialChild: const MyApp(),
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,11 +25,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: FastTheme.of(context).theme,
-      home: SampleListPage(),
-    );
+    return FastThemeScope(
+        accentColor: Colors.green,
+        themeMode: ThemeMode.system,
+        builder: (context, lightTheme, darkTheme, mode) {
+          return MaterialApp(
+            title: 'Fast White Theme',
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            themeMode: mode,
+            home: SampleListPage(),
+          );
+        });
   }
 }
 
@@ -44,6 +48,7 @@ class SampleListPage extends StatelessWidget {
     return Scaffold(
       appBar: FastAppBar(
         title: const Text("MaterialFastUI White"),
+        actions: const [ThemeSwitcher()],
       ),
       body: ListView.builder(
         itemCount: sampleList.length,

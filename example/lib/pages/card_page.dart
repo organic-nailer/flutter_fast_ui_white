@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class CardPage extends StatelessWidget {
@@ -8,6 +9,7 @@ class CardPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Card"),
+        actions: const [ThemeSwitcher()],
       ),
       body: SingleChildScrollView(
         child: Padding(

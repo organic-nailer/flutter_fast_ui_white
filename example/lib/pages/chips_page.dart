@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class ChipsPage extends StatefulWidget {
@@ -37,6 +38,7 @@ class _ChipsPageState extends State<ChipsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Chips"),
+        actions: const [ThemeSwitcher()],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),

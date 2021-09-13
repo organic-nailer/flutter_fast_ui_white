@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_fast_ui_white/src/fast_theme_scope.dart';
 
 Future<DateTime?> showFastDatePicker({
   required BuildContext context,
@@ -39,10 +38,7 @@ Future<DateTime?> showFastDatePicker({
       routeSettings: routeSettings,
       textDirection: textDirection,
       builder: (context, child) {
-        return Theme(
-          data: ThemeData(primarySwatch: FastTheme.of(context).accentColor),
-          child: child!,
-        );
+        return child!;
       },
       initialDatePickerMode: initialDatePickerMode,
       errorFormatText: errorFormatText,
@@ -66,10 +62,7 @@ Future<TimeOfDay?> showFastTimePicker({
     context: context,
     initialTime: initialTime,
     builder: (context, child) {
-      return Theme(
-        data: ThemeData(primarySwatch: FastTheme.of(context).accentColor),
-        child: child!,
-      );
+      return child!;
     },
     useRootNavigator: useRootNavigator,
     initialEntryMode: initialEntryMode,

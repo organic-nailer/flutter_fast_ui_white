@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class TabPage extends StatefulWidget {
@@ -50,6 +51,7 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Tab"),
+        actions: const [ThemeSwitcher()],
         bottom: TabBar(
           controller: _controller,
           tabs: const [

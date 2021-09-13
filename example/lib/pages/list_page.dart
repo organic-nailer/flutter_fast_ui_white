@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/flutter_fast_ui_white.dart';
@@ -10,6 +11,7 @@ class ListPage extends StatelessWidget {
     return Scaffold(
       appBar: FastAppBar(
         title: const Text("Lists"),
+        actions: const [ThemeSwitcher()],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

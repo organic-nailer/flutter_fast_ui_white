@@ -1,3 +1,4 @@
+import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
 
 class TypographyPage extends StatelessWidget {
@@ -13,6 +14,7 @@ class TypographyPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Typography"),
+        actions: const [ThemeSwitcher()],
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
