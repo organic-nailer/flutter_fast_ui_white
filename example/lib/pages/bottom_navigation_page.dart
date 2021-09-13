@@ -13,6 +13,9 @@ class _BottomNavigationPageState extends State<BottomNavigationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Bottom Navigation"),
+      ),
       body: Center(
         child: Row(
           mainAxisSize: MainAxisSize.min,

@@ -35,61 +35,62 @@ class _ChipsPageState extends State<ChipsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text("Input chips (Not implemented)"),
-              Wrap(),
-              const Divider(),
-              const Text("Choice chips"),
-              Wrap(
-                  children: _choiceChips
-                      .map((e) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: ChoiceChip(
-                              label: Text(e.label),
-                              selected: e.selected,
-                              onSelected: (value) {
-                                setState(() {
-                                  e.selected = value;
-                                });
-                              },
-                            ),
-                          ))
-                      .toList()),
-              const Text("Filter chips"),
-              Wrap(
-                  children: _filterChips
-                      .map((e) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: FilterChip(
-                              label: Text(e.label),
-                              selected: e.selected,
-                              onSelected: (value) {
-                                setState(() {
-                                  e.selected = value;
-                                });
-                              },
-                            ),
-                          ))
-                      .toList()),
-              const Text("Action chips"),
-              Wrap(
-                  children: _actionChips
-                      .map((e) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 4),
-                            child: ActionChip(
-                              avatar: e.avatar,
-                              label: Text(e.label),
-                              onPressed: () {},
-                            ),
-                          ))
-                      .toList()),
-            ],
-          ),
+      appBar: AppBar(
+        title: const Text("Chips"),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text("Input chips (Not implemented)"),
+            Wrap(),
+            const Divider(),
+            const Text("Choice chips"),
+            Wrap(
+                children: _choiceChips
+                    .map((e) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: ChoiceChip(
+                            label: Text(e.label),
+                            selected: e.selected,
+                            onSelected: (value) {
+                              setState(() {
+                                e.selected = value;
+                              });
+                            },
+                          ),
+                        ))
+                    .toList()),
+            const Text("Filter chips"),
+            Wrap(
+                children: _filterChips
+                    .map((e) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: FilterChip(
+                            label: Text(e.label),
+                            selected: e.selected,
+                            onSelected: (value) {
+                              setState(() {
+                                e.selected = value;
+                              });
+                            },
+                          ),
+                        ))
+                    .toList()),
+            const Text("Action chips"),
+            Wrap(
+                children: _actionChips
+                    .map((e) => Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: ActionChip(
+                            avatar: e.avatar,
+                            label: Text(e.label),
+                            onPressed: () {},
+                          ),
+                        ))
+                    .toList()),
+          ],
         ),
       ),
     );
