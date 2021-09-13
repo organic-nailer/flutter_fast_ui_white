@@ -12,21 +12,21 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
     Container(
       height: 48,
       color: Colors.green,
-      child: Center(
+      child: const Center(
         child: Text("Tab1 Content"),
       ),
     ),
     Container(
       height: 48,
       color: Colors.pink,
-      child: Center(
+      child: const Center(
         child: Text("Tab2 Content"),
       ),
     ),
     Container(
       height: 48,
       color: Colors.yellow,
-      child: Center(
+      child: const Center(
         child: Text("Tab3 Content"),
       ),
     ),
@@ -49,10 +49,10 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Tab"),
+        title: const Text("Tab"),
         bottom: TabBar(
           controller: _controller,
-          tabs: [
+          tabs: const [
             Tab(
               icon: Icon(Icons.adb),
               text: "Tab1",
@@ -70,10 +70,10 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
       ),
       body: Column(
         children: [
-          Divider(),
+          const Divider(),
           TabBar(
             controller: _controller,
-            tabs: [
+            tabs: const [
               Tab(
                 text: "Tab1",
               ),
@@ -85,10 +85,10 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
               ),
             ],
           ),
-          Divider(),
+          const Divider(),
           TabBar(
             controller: _controller,
-            tabs: [
+            tabs: const [
               Tab(
                 icon: Icon(Icons.adb),
               ),
@@ -100,11 +100,11 @@ class _TabPageState extends State<TabPage> with TickerProviderStateMixin {
               ),
             ],
           ),
-          Divider(),
+          const Divider(),
           TabBar(
             controller: _controller,
             isScrollable: true,
-            tabs: [
+            tabs: const [
               Tab(
                 text: "Tab1",
               ),

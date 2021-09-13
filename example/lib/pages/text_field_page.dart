@@ -13,13 +13,13 @@ class _TextFieldPageState extends State<TextFieldPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Text Field"),
+        title: const Text("Text Field"),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
-            children: [
+            children: const [
               Text("TextField"),
               Divider(),
               FastTextField(),

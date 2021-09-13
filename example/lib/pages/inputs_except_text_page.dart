@@ -9,7 +9,7 @@ class InputsExceptTextPage extends StatefulWidget {
   _InputsExceptTextPageState createState() => _InputsExceptTextPageState();
 }
 
-var formatter = new DateFormat('yyyy/MM/dd', "ja_JP");
+var formatter = DateFormat('yyyy/MM/dd', "ja_JP");
 
 class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
   bool _isDisabled = false;
@@ -29,7 +29,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
             children: [
               Row(
                 children: [
-                  Text("Disabled"),
+                  const Text("Disabled"),
                   Checkbox(
                     value: _isDisabled,
                     onChanged: (value) {
@@ -44,7 +44,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Checkbox"),
+                  const Text("Checkbox"),
                   Checkbox(
                       value: _topToggle,
                       onChanged: _isDisabled
@@ -54,7 +54,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                                 _topToggle = value ?? false;
                               });
                             }),
-                  Text("Switch"),
+                  const Text("Switch"),
                   Switch(
                       value: _topToggle,
                       onChanged: _isDisabled
@@ -66,7 +66,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                             }),
                 ],
               ),
-              Text("Radio Button"),
+              const Text("Radio Button"),
               for (int i = 1; i <= 2; i++)
                 ListTile(
                     title: Text(
@@ -118,7 +118,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                       child: Text(formatter.format(_date)),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 16,
                   ),
                   Expanded(

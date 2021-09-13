@@ -27,10 +27,13 @@ class FastTheme extends InheritedWidget {
   late final ThemeData theme;
   late final ThemeData darkTheme;
   late final Color nonColoredAccent;
-  final Widget child;
+  final Widget materialChild;
   FastTheme(
-      {required this.accentColor, required this.themeMode, required this.child})
-      : super(child: child) {
+      {Key? key,
+      required this.accentColor,
+      required this.themeMode,
+      required this.materialChild})
+      : super(key: key, child: materialChild) {
     theme = _createFastTheme(accentColor);
     darkTheme = _createFastThemeDark(accentColor);
     nonColoredAccent = Colors.black;
@@ -58,11 +61,10 @@ class FastTheme extends InheritedWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
             backgroundColor: FastTheme.materialWhite,
-            backwardsCompatibility: false,
             elevation: 0,
             iconTheme: IconThemeData(color: typography.black.headline5!.color),
             titleTextStyle: typography.black.headline6),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: _activeBlack,
             unselectedItemColor: _inactiveBlack),
         // buttonTheme は現在使われていないのでボタンごとに指定
@@ -72,23 +74,24 @@ class FastTheme extends InheritedWidget {
         cardTheme: CardTheme(
             elevation: 0,
             shape: RoundedRectangleBorder(
-                side: BorderSide(color: _borderGrey, width: 1),
+                side: const BorderSide(color: _borderGrey, width: 1),
                 borderRadius: BorderRadius.circular(8))),
         chipTheme: ChipThemeData.fromDefaults(
                 secondaryColor: accentColor,
                 brightness: Brightness.light,
                 labelStyle: typography.black.bodyText1!)
             .copyWith(elevation: 0, pressElevation: 0),
-        dividerTheme: DividerThemeData(color: Color(0x1F000000), thickness: 2),
+        dividerTheme:
+            const DividerThemeData(color: Color(0x1F000000), thickness: 2),
         inputDecorationTheme: InputDecorationTheme(
             contentPadding:
-                EdgeInsets.only(left: 16, right: 12, top: 12, bottom: 12),
+                const EdgeInsets.only(left: 16, right: 12, top: 12, bottom: 12),
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(8.0))),
         tabBarTheme: TabBarTheme(
             labelColor: accentColor,
             unselectedLabelColor: _inactiveBlack,
-            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            labelStyle: const TextStyle(fontWeight: FontWeight.bold),
             indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(color: accentColor, width: 2))));
   }
@@ -103,11 +106,10 @@ class FastTheme extends InheritedWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
             backgroundColor: materialWhite,
-            backwardsCompatibility: false,
             elevation: 0,
             iconTheme: IconThemeData(color: typography.black.headline5!.color),
             titleTextStyle: typography.black.headline6),
-        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: _activeBlack,
             unselectedItemColor: _inactiveBlack),
         // buttonTheme は現在使われていないのでボタンごとに指定
@@ -117,34 +119,35 @@ class FastTheme extends InheritedWidget {
         cardTheme: CardTheme(
             elevation: 0,
             shape: RoundedRectangleBorder(
-                side: BorderSide(color: _borderGrey, width: 1),
+                side: const BorderSide(color: _borderGrey, width: 1),
                 borderRadius: BorderRadius.circular(8))),
         chipTheme: ChipThemeData.fromDefaults(
                 secondaryColor: accentColor,
                 brightness: Brightness.light,
                 labelStyle: typography.black.bodyText1!)
             .copyWith(elevation: 0, pressElevation: 0),
-        dividerTheme: DividerThemeData(color: Color(0x1F000000), thickness: 2));
+        dividerTheme:
+            const DividerThemeData(color: Color(0x1F000000), thickness: 2));
   }
 
-  static final MaterialColor materialWhite = const MaterialColor(
+  static const MaterialColor materialWhite = MaterialColor(
     0xFFFFFFFF,
-    const <int, Color>{
-      50: const Color(0xFFFFFFFF),
-      100: const Color(0xFFFFFFFF),
-      200: const Color(0xFFFFFFFF),
-      300: const Color(0xFFFFFFFF),
-      400: const Color(0xFFFFFFFF),
-      500: const Color(0xFFFFFFFF),
-      600: const Color(0xFFFFFFFF),
-      700: const Color(0xFFFFFFFF),
-      800: const Color(0xFFFFFFFF),
-      900: const Color(0xFFFFFFFF),
+    <int, Color>{
+      50: Color(0xFFFFFFFF),
+      100: Color(0xFFFFFFFF),
+      200: Color(0xFFFFFFFF),
+      300: Color(0xFFFFFFFF),
+      400: Color(0xFFFFFFFF),
+      500: Color(0xFFFFFFFF),
+      600: Color(0xFFFFFFFF),
+      700: Color(0xFFFFFFFF),
+      800: Color(0xFFFFFFFF),
+      900: Color(0xFFFFFFFF),
     },
   );
   // from: https://material.io/design/color/text-legibility.html#text-types
-  static final Color _activeBlack = const Color(0xDE000000);
-  static final Color _inactiveBlack = const Color(0x99000000);
+  static const Color _activeBlack = Color(0xDE000000);
+  static const Color _inactiveBlack = Color(0x99000000);
   // static final Color _disabledBlack = const Color(0x61000000);
 
   // static final MaterialColor accentColor = Colors.deepPurple;
@@ -152,5 +155,5 @@ class FastTheme extends InheritedWidget {
   // static final Color _overlayOnDark = const Color(0x52FFFFFF);
   // static final Color _overlayOnLight = const Color(0x29000000);
 
-  static final Color _borderGrey = const Color(0xFFC8C8C8);
+  static const Color _borderGrey = Color(0xFFC8C8C8);
 }

@@ -19,14 +19,14 @@ class _ChipsPageState extends State<ChipsPage> {
     FilterChipData("Filter3", false),
   ];
   final _actionChips = [
-    ActionChipData(Icon(Icons.favorite_outline), "Action1"),
+    ActionChipData(const Icon(Icons.favorite_outline), "Action1"),
     ActionChipData(
-        CircleAvatar(
+        const CircleAvatar(
           backgroundImage: AssetImage("assets/panda.jpg"),
         ),
         "Action2"),
     ActionChipData(
-        CircleAvatar(
+        const CircleAvatar(
           backgroundColor: Colors.orange,
           child: Text("F"),
         ),
@@ -41,10 +41,10 @@ class _ChipsPageState extends State<ChipsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Input chips (Not implemented)"),
+              const Text("Input chips (Not implemented)"),
               Wrap(),
-              Divider(),
-              Text("Choice chips"),
+              const Divider(),
+              const Text("Choice chips"),
               Wrap(
                   children: _choiceChips
                       .map((e) => Padding(
@@ -60,7 +60,7 @@ class _ChipsPageState extends State<ChipsPage> {
                             ),
                           ))
                       .toList()),
-              Text("Filter chips"),
+              const Text("Filter chips"),
               Wrap(
                   children: _filterChips
                       .map((e) => Padding(
@@ -76,7 +76,7 @@ class _ChipsPageState extends State<ChipsPage> {
                             ),
                           ))
                       .toList()),
-              Text("Action chips"),
+              const Text("Action chips"),
               Wrap(
                   children: _actionChips
                       .map((e) => Padding(

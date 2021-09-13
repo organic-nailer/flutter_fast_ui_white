@@ -45,7 +45,7 @@ class FastTextField extends StatelessWidget {
   final EdgeInsetsGeometry margin;
   final FastInputDecoration decoration;
 
-  FastTextField(
+  const FastTextField(
       {Key? key,
       this.controller,
       this.focusNode,
@@ -114,7 +114,7 @@ class FastTextField extends StatelessWidget {
       padding: margin,
       child: TextField(
         cursorWidth: 1,
-        style: TextStyle(height: 1.5),
+        style: const TextStyle(height: 1.5),
         controller: controller,
         focusNode: focusNode,
         keyboardType: keyboardType,
@@ -208,15 +208,15 @@ class FastInputDecoration {
     return InputDecoration(
       icon: icon,
       labelText: labelText,
-      labelStyle: TextStyle(height: 1),
+      labelStyle: const TextStyle(height: 1),
       helperText: helperText,
-      helperStyle: TextStyle(height: 1),
+      helperStyle: const TextStyle(height: 1),
       helperMaxLines: helperMaxLines,
       hintText: hintText,
       hintTextDirection: hintTextDirection,
       hintMaxLines: hintMaxLines,
       errorText: errorText,
-      errorStyle: TextStyle(height: 1),
+      errorStyle: const TextStyle(height: 1),
       errorMaxLines: errorMaxLines,
       isCollapsed: isCollapsed,
       prefixIcon: prefixIcon,

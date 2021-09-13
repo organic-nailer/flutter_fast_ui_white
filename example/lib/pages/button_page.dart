@@ -24,7 +24,7 @@ class _ButtonPageState extends State<ButtonPage> {
               children: [
                 Row(
                   children: [
-                    Text("disabled"),
+                    const Text("disabled"),
                     Checkbox(
                         value: _isDisabled,
                         onChanged: (value) {
@@ -34,7 +34,7 @@ class _ButtonPageState extends State<ButtonPage> {
                             });
                           }
                         }),
-                    Text("withIcon"),
+                    const Text("withIcon"),
                     Checkbox(
                         value: _withIcon,
                         onChanged: (value) {
@@ -46,51 +46,51 @@ class _ButtonPageState extends State<ButtonPage> {
                         }),
                   ],
                 ),
-                Text("Expanded"),
+                const Text("Expanded"),
                 _withIcon
                     ? ElevatedButton.icon(
                         onPressed: _isDisabled ? null : () {},
-                        label: Text("Elevated"),
-                        icon: Icon(Icons.view_compact_outlined),
+                        label: const Text("Elevated"),
+                        icon: const Icon(Icons.view_compact_outlined),
                       )
                     : ElevatedButton(
                         onPressed: _isDisabled ? null : () {},
-                        child: Text("Elevated")),
+                        child: const Text("Elevated")),
                 _withIcon
                     ? OutlinedButton.icon(
                         onPressed: _isDisabled ? null : () {},
-                        label: Text("Outlined"),
-                        icon: Icon(Icons.offline_bolt_outlined),
+                        label: const Text("Outlined"),
+                        icon: const Icon(Icons.offline_bolt_outlined),
                       )
                     : OutlinedButton(
                         onPressed: _isDisabled ? null : () {},
-                        child: Text("Outlined")),
+                        child: const Text("Outlined")),
                 _withIcon
                     ? TextButton.icon(
                         onPressed: _isDisabled ? null : () {},
-                        label: Text("Text"),
-                        icon: Icon(Icons.face_outlined),
+                        label: const Text("Text"),
+                        icon: const Icon(Icons.face_outlined),
                       )
                     : TextButton(
                         onPressed: _isDisabled ? null : () {},
-                        child: Text("Text")),
-                Text("Horizontal"),
+                        child: const Text("Text")),
+                const Text("Horizontal"),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     TextButton(
                         onPressed: _isDisabled ? null : () {},
-                        child: Text("Text")),
-                    SizedBox(
+                        child: const Text("Text")),
+                    const SizedBox(
                       width: 16,
                     ),
                     OutlinedButton(
                         onPressed: _isDisabled ? null : () {},
-                        child: Text("Outlined")),
+                        child: const Text("Outlined")),
                   ],
                 ),
-                Text("Flex"),
+                const Text("Flex"),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
@@ -98,41 +98,41 @@ class _ButtonPageState extends State<ButtonPage> {
                         flex: 1,
                         child: OutlinedButton(
                             onPressed: _isDisabled ? null : () {},
-                            child: Text("Outlined"))),
-                    SizedBox(
+                            child: const Text("Outlined"))),
+                    const SizedBox(
                       width: 16,
                     ),
                     Expanded(
                         flex: 2,
                         child: ElevatedButton(
                             onPressed: _isDisabled ? null : () {},
-                            child: Text("Elevated"))),
+                            child: const Text("Elevated"))),
                   ],
                 ),
-                Text("nonColored"),
+                const Text("nonColored"),
                 Wrap(
                   children: [
                     TextButton(
                       onPressed: _isDisabled ? null : () {},
-                      child: Text("Text"),
+                      child: const Text("Text"),
                       style: TextButton.styleFrom(
                           primary: FastTheme.of(context).nonColoredAccent),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
                     OutlinedButton(
                       onPressed: _isDisabled ? null : () {},
-                      child: Text("Outlined"),
+                      child: const Text("Outlined"),
                       style: OutlinedButton.styleFrom(
                           primary: FastTheme.of(context).nonColoredAccent),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 16,
                     ),
                     ElevatedButton(
                       onPressed: _isDisabled ? null : () {},
-                      child: Text("Elevated"),
+                      child: const Text("Elevated"),
                       style: ElevatedButton.styleFrom(
                           primary: FastTheme.of(context).nonColoredAccent),
                     ),
@@ -150,11 +150,11 @@ class _ButtonPageState extends State<ButtonPage> {
                   _extended = false;
                 });
               },
-              label: Text("Extended"),
-              icon: Icon(Icons.add),
+              label: const Text("Extended"),
+              icon: const Icon(Icons.add),
             )
           : FloatingActionButton(
-              child: Icon(Icons.add),
+              child: const Icon(Icons.add),
               onPressed: () {
                 setState(() {
                   _extended = true;

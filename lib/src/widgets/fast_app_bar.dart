@@ -38,7 +38,7 @@ class FastAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leading,
       automaticallyImplyLeading: automaticallyImplyLeading,
       title: title,
-      shape: Border(
+      shape: const Border(
           bottom:
               BorderSide(color: Color.fromARGB(255, 245, 245, 245), width: 1)),
       actions: actions,

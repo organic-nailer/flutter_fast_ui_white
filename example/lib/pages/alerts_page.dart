@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AlertsPage extends StatelessWidget {
-  AlertsPage({Key? key}) : super(key: key);
+  const AlertsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +16,15 @@ class AlertsPage extends StatelessWidget {
                       context: context,
                       builder: (context) => _alertDialog(context));
                 },
-                child: Text("Alert Dialog")),
+                child: const Text("Alert Dialog")),
             OutlinedButton(
                 onPressed: () {
                   showDialog(
                       context: context,
                       builder: (context) => _simpleDialog(context));
                 },
-                child: Text("Simple Dialog")),
-            OutlinedButton(
+                child: const Text("Simple Dialog")),
+            const OutlinedButton(
                 onPressed: null,
                 // onPressed: () {
                 //   showDialog(
@@ -37,12 +37,13 @@ class AlertsPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute<void>(
-                      builder: (BuildContext context) => FullScreenDialog(),
+                      builder: (BuildContext context) =>
+                          const FullScreenDialog(),
                       fullscreenDialog: true,
                     ),
                   );
                 },
-                child: Text("Full-Screen Dialog")),
+                child: const Text("Full-Screen Dialog")),
           ],
         ),
       ),
@@ -50,23 +51,23 @@ class AlertsPage extends StatelessWidget {
   }
 
   AlertDialog _alertDialog(BuildContext context) => AlertDialog(
-        title: Text('Reset settings?'),
-        content: Text(
+        title: const Text('Reset settings?'),
+        content: const Text(
             'This will reset your device to its default factory settings.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('CANCEL'),
+            child: const Text('CANCEL'),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text('ACCEPT'),
+            child: const Text('ACCEPT'),
           ),
         ],
       );
 
   SimpleDialog _simpleDialog(BuildContext context) => SimpleDialog(
-        title: Text('Set backup account'),
+        title: const Text('Set backup account'),
         children: [
           SimpleDialogItem(
             icon: Icons.account_circle,
@@ -180,13 +181,15 @@ class SimpleDialogItem extends StatelessWidget {
 }
 
 class FullScreenDialog extends StatelessWidget {
+  const FullScreenDialog({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Full-screen Dialog'),
+        title: const Text('Full-screen Dialog'),
       ),
-      body: Center(
+      body: const Center(
         child: Text("Full-screen dialog"),
       ),
     );

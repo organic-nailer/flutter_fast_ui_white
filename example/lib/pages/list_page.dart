@@ -9,11 +9,11 @@ class ListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FastAppBar(
-        title: Text("Lists"),
+        title: const Text("Lists"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: const [
           Text("Single Line"),
           ListTile(
             title: Text("Simple"),

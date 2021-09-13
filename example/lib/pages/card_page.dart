@@ -23,32 +23,54 @@ class CardPage extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("OVERLINE", style: Theme.of(context).textTheme.overline,),
-                                  SizedBox(height: 16,),
-                                  Text("Headline 5", style: Theme.of(context).textTheme.headline5,),
-                                  SizedBox(height: 8,),
-                                  Text("Greyhound divisively hello coldly wonderfully...", style: Theme.of(context).textTheme.bodyText1,),
+                                  Text(
+                                    "OVERLINE",
+                                    style: Theme.of(context).textTheme.overline,
+                                  ),
+                                  const SizedBox(
+                                    height: 16,
+                                  ),
+                                  Text(
+                                    "Headline 5",
+                                    style:
+                                        Theme.of(context).textTheme.headline5,
+                                  ),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    "Greyhound divisively hello coldly wonderfully...",
+                                    style:
+                                        Theme.of(context).textTheme.bodyText1,
+                                  ),
                                 ],
                               ),
                             ),
                           ),
                           Container(
-                              width: 80, height: 80,
-                              margin: EdgeInsets.all(16),
+                              width: 80,
+                              height: 80,
+                              margin: const EdgeInsets.all(16),
                               child: ClipRRect(
-                                borderRadius: BorderRadius.all(Radius.circular(8)),
-                                  child: Image.asset("assets/panda.jpg", fit: BoxFit.cover,)
-                              )
-                          ),
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(8)),
+                                  child: Image.asset(
+                                    "assets/panda.jpg",
+                                    fit: BoxFit.cover,
+                                  ))),
                         ],
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8),
                         child: Row(
                           children: [
-                            TextButton(onPressed: () {}, child: Text("BUTTON")),
-                            SizedBox(width: 16,),
-                            TextButton(onPressed: () {}, child: Text("BUTTON")),
+                            TextButton(
+                                onPressed: () {}, child: const Text("BUTTON")),
+                            const SizedBox(
+                              width: 16,
+                            ),
+                            TextButton(
+                                onPressed: () {}, child: const Text("BUTTON")),
                           ],
                         ),
                       )

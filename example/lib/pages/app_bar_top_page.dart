@@ -9,14 +9,15 @@ class AppBarTopPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: FastAppBar(
-        title: Text("AppBar Top"),
+        title: const Text("AppBar Top"),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          IconButton(
+              onPressed: () {}, icon: const Icon(Icons.favorite_outline)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert)),
         ],
       ),
       body: ListView.builder(itemBuilder: (context, index) {
-        if (index.isOdd) return Divider();
+        if (index.isOdd) return const Divider();
         return ListTile(
           title: Text("ITEM ${index / 2}"),
         );

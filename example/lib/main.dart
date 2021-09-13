@@ -19,11 +19,13 @@ void main() {
   runApp(FastTheme(
     accentColor: Colors.pink,
     themeMode: ThemeMode.light,
-    child: MyApp(),
+    materialChild: const MyApp(),
   ));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +43,7 @@ class SampleListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: FastAppBar(
-        title: Text("MaterialFastUI White"),
+        title: const Text("MaterialFastUI White"),
       ),
       body: ListView.builder(
         itemCount: sampleList.length,
@@ -62,17 +64,17 @@ class SampleListPage extends StatelessWidget {
   }
 
   final sampleList = <SampleData>[
-    SampleData("AppBar:Top", (_) => AppBarTopPage()),
-    SampleData("BottomNavigation", (_) => BottomNavigationPage()),
-    SampleData("Button", (_) => ButtonPage()),
-    SampleData("CardPage", (_) => CardPage()),
-    SampleData("Inputs(Text除く)", (_) => InputsExceptTextPage()),
-    SampleData("Chips", (_) => ChipsPage()),
-    SampleData("Dialogs", (_) => AlertsPage()),
-    SampleData("List", (_) => ListPage()),
-    SampleData("Typography", (_) => TypographyPage()),
-    SampleData("TextField", (_) => TextFieldPage()),
-    SampleData("Tab", (_) => TabPage())
+    SampleData("AppBar:Top", (_) => const AppBarTopPage()),
+    SampleData("BottomNavigation", (_) => const BottomNavigationPage()),
+    SampleData("Button", (_) => const ButtonPage()),
+    SampleData("CardPage", (_) => const CardPage()),
+    SampleData("Inputs(Text除く)", (_) => const InputsExceptTextPage()),
+    SampleData("Chips", (_) => const ChipsPage()),
+    SampleData("Dialogs", (_) => const AlertsPage()),
+    SampleData("List", (_) => const ListPage()),
+    SampleData("Typography", (_) => const TypographyPage()),
+    SampleData("TextField", (_) => const TextFieldPage()),
+    SampleData("Tab", (_) => const TabPage())
   ];
 }
 
@@ -80,5 +82,5 @@ class SampleListPage extends StatelessWidget {
 class SampleData {
   final String name;
   final Widget Function(BuildContext) builder;
-  SampleData(this.name, this.builder);
+  const SampleData(this.name, this.builder);
 }
