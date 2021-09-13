@@ -1,6 +1,5 @@
 import 'package:example/components/theme_switcher.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_fast_ui_white/flutter_fast_ui_white.dart';
 import "package:intl/intl.dart";
 
 class InputsExceptTextPage extends StatefulWidget {
@@ -103,7 +102,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () async {
-                      final result = await showFastDatePicker(
+                      final result = await showDatePicker(
                         context: context,
                         initialDate: _date,
                         firstDate: DateTime(
@@ -128,7 +127,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
                 Expanded(
                   child: OutlinedButton(
                     onPressed: () async {
-                      final result = await showFastTimePicker(
+                      final result = await showTimePicker(
                           context: context, initialTime: _time);
                       if (result != null) {
                         setState(() {
