@@ -54,8 +54,6 @@ class FastTheme extends InheritedWidget {
   ThemeData _createFastTheme(MaterialColor accent) {
     final typography = Typography.material2018(platform: defaultTargetPlatform);
     return ThemeData(
-        primarySwatch: accentColor,
-        accentColor: accentColor,
         typography: typography,
         materialTapTargetSize: MaterialTapTargetSize.padded,
         scaffoldBackgroundColor: Colors.white,
@@ -93,7 +91,10 @@ class FastTheme extends InheritedWidget {
             unselectedLabelColor: _inactiveBlack,
             labelStyle: const TextStyle(fontWeight: FontWeight.bold),
             indicator: UnderlineTabIndicator(
-                borderSide: BorderSide(color: accentColor, width: 2))));
+                borderSide: BorderSide(color: accentColor, width: 2))),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: accentColor)
+            .copyWith(secondary: accentColor),
+        primarySwatch: accentColor);
   }
 
   // WIP
@@ -101,8 +102,6 @@ class FastTheme extends InheritedWidget {
     final typography = Typography.material2018(platform: defaultTargetPlatform);
     return ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: accentColor,
-        accentColor: accentColor,
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(
             backgroundColor: materialWhite,
@@ -127,7 +126,10 @@ class FastTheme extends InheritedWidget {
                 labelStyle: typography.black.bodyText1!)
             .copyWith(elevation: 0, pressElevation: 0),
         dividerTheme:
-            const DividerThemeData(color: Color(0x1F000000), thickness: 2));
+            const DividerThemeData(color: Color(0x1F000000), thickness: 2),
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: accentColor)
+            .copyWith(secondary: accentColor),
+        primarySwatch: accentColor);
   }
 
   static const MaterialColor materialWhite = MaterialColor(
