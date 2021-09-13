@@ -9,12 +9,12 @@ const RESOURCES = {
 "assets/assets/panda.jpg": "d7096a2b7e764f0bb22923a688d2e4d0",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
-"assets/NOTICES": "9fce8632e239a2cf11f4de54c34a10df",
+"assets/NOTICES": "09ef06a5c22f3401a99effd822f1f883",
 "assets/AssetManifest.json": "3133f2d0f2ef341c53f4e82d1567164b",
-"index.html": "b73c73a4dc5e6e768a3b93946f1ccd0e",
-"/": "b73c73a4dc5e6e768a3b93946f1ccd0e",
+"index.html": "547bed0ae7eba1eb8fa0dd093c912670",
+"/": "547bed0ae7eba1eb8fa0dd093c912670",
 "manifest.json": "15f73b7e8a8209c2206210b3ac8dea1b",
-"main.dart.js": "4193260328de6e0abab67332a1866e98",
+"main.dart.js": "c93795d6f34018ff0771c7fbabac9435",
 "version.json": "4b6db237b3514a88107a422469adfb0f",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796"
 };
