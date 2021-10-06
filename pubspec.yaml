@@ -1,7 +1,7 @@
 name: flutter_fast_ui_white
 description: Easy Material White Theme
 
-version: 0.2.0
+version: 0.3.0
 
 environment:
   sdk: ">=2.12.0 <3.0.0"

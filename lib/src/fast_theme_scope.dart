@@ -1,15 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_fast_ui_white/src/custom_colors.dart';
 import 'package:flutter_fast_ui_white/src/fast_theme.dart';
 
 class FastThemeScope extends StatefulWidget {
   final MaterialColor accentColor;
   final ThemeMode themeMode;
+  final CustomColors? customColors;
   final MaterialBuilder builder;
   const FastThemeScope(
       {Key? key,
       required this.accentColor,
       required this.themeMode,
+      this.customColors,
       required this.builder})
       : super(key: key);
 
@@ -37,6 +40,7 @@ class _FastThemeScopeState extends State<FastThemeScope> {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: mode,
+      customColors: widget.customColors ?? const EmptyCustomColors(),
       accentColor: accentColor,
       changeAccent: changeAccent,
       changeTheme: changeTheme,

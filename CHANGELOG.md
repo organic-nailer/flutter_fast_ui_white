@@ -1,3 +1,8 @@
+## 0.3
+
+- CHANGE
+  - Custom Colorを設定できるように
+
 ## 0.2
 
 - CHANGE

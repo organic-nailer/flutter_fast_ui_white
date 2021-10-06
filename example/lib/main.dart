@@ -5,11 +5,13 @@ import 'package:example/pages/bottom_navigation_page.dart';
 import 'package:example/pages/button_page.dart';
 import 'package:example/pages/card_page.dart';
 import 'package:example/pages/chips_page.dart';
+import 'package:example/pages/custom_color_page.dart';
 import 'package:example/pages/inputs_except_text_page.dart';
 import 'package:example/pages/list_page.dart';
 import 'package:example/pages/tab_page.dart';
 import 'package:example/pages/text_field_page.dart';
 import 'package:example/pages/typography_page.dart';
+import 'package:example/theme/my_custom_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/flutter_fast_ui_white.dart';
@@ -25,9 +27,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final accent = Colors.green;
     return FastThemeScope(
-        accentColor: Colors.green,
+        accentColor: accent,
         themeMode: ThemeMode.system,
+        customColors: MyCustomColors(accent),
         builder: (context, lightTheme, darkTheme, mode) {
           return MaterialApp(
             title: 'Fast White Theme',
@@ -79,7 +83,8 @@ class SampleListPage extends StatelessWidget {
     SampleData("List", (_) => const ListPage()),
     SampleData("Typography", (_) => const TypographyPage()),
     SampleData("TextField", (_) => const TextFieldPage()),
-    SampleData("Tab", (_) => const TabPage())
+    SampleData("Tab", (_) => const TabPage()),
+    SampleData("Custom Color", (_) => const CustomColorPage())
   ];
 }
 
