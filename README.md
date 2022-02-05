@@ -10,7 +10,7 @@ dependencies:
   flutter_fast_ui_white:
     git:
       url: https://github.com/organic-nailer/flutter_fast_ui_white
-      ref: v0.2
+      ref: v0.3
 ```
 
 ```dart
