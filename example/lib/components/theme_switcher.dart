@@ -27,7 +27,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Row(
         children: [
-          Text("Light", style: Theme.of(context).textTheme.bodyText1),
+          Text("Light", style: Theme.of(context).textTheme.bodyLarge),
           Switch(
               value: isDark,
               onChanged: (value) {
@@ -37,7 +37,7 @@ class _ThemeSwitcherState extends State<ThemeSwitcher> {
                   isDark = value;
                 });
               }),
-          Text("Dark", style: Theme.of(context).textTheme.bodyText1),
+          Text("Dark", style: Theme.of(context).textTheme.bodyLarge),
         ],
       ),
     );

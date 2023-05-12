@@ -29,21 +29,21 @@ class CardPage extends StatelessWidget {
                               children: [
                                 Text(
                                   "OVERLINE",
-                                  style: Theme.of(context).textTheme.overline,
+                                  style: Theme.of(context).textTheme.labelSmall,
                                 ),
                                 const SizedBox(
                                   height: 16,
                                 ),
                                 Text(
                                   "Headline 5",
-                                  style: Theme.of(context).textTheme.headline5,
+                                  style: Theme.of(context).textTheme.headlineSmall,
                                 ),
                                 const SizedBox(
                                   height: 8,
                                 ),
                                 Text(
                                   "Greyhound divisively hello coldly wonderfully...",
-                                  style: Theme.of(context).textTheme.bodyText1,
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
                               ],
                             ),

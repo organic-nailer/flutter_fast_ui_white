@@ -17,7 +17,7 @@ class CustomColorPage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            Text("Pale Background Color"),
+            const Text("Pale Background Color"),
             Container(
               width: 200,
               height: 200,
@@ -25,7 +25,7 @@ class CustomColorPage extends StatelessWidget {
               color: FastTheme.of(context)
                   .getCustomColor<MyColors>(MyColors.paleBackground),
             ),
-            Text("Pale NonColored Background Color"),
+            const Text("Pale NonColored Background Color"),
             Container(
               width: 200,
               height: 200,

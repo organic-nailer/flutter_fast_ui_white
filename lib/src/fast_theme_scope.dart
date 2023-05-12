@@ -71,8 +71,8 @@ class _FastThemeScopeState extends State<FastThemeScope> {
         appBarTheme: AppBarTheme(
             backgroundColor: materialWhite,
             elevation: 0,
-            iconTheme: IconThemeData(color: typography.black.headline5!.color),
-            titleTextStyle: typography.black.headline6),
+            iconTheme: IconThemeData(color: typography.black.headlineSmall!.color),
+            titleTextStyle: typography.black.titleLarge),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: _activeBlack,
             unselectedItemColor: _inactiveBlack),
@@ -88,7 +88,7 @@ class _FastThemeScopeState extends State<FastThemeScope> {
         chipTheme: ChipThemeData.fromDefaults(
                 secondaryColor: accent,
                 brightness: Brightness.light,
-                labelStyle: typography.black.bodyText1!)
+                labelStyle: typography.black.bodyLarge!)
             .copyWith(elevation: 0, pressElevation: 0),
         dividerTheme:
             const DividerThemeData(color: Color(0x1F000000), thickness: 2),
@@ -119,8 +119,8 @@ class _FastThemeScopeState extends State<FastThemeScope> {
             backgroundColor: const Color(
                 0xFF2C2C2C), // #121212 + 11% overlay( 6dp elevation )
             elevation: 0,
-            iconTheme: IconThemeData(color: typography.white.headline5!.color),
-            titleTextStyle: typography.white.headline6),
+            iconTheme: IconThemeData(color: typography.white.headlineSmall!.color),
+            titleTextStyle: typography.white.titleLarge),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
             selectedItemColor: _activeWhite,
             unselectedItemColor: _inactiveWhite),
@@ -135,7 +135,7 @@ class _FastThemeScopeState extends State<FastThemeScope> {
         chipTheme: ChipThemeData.fromDefaults(
                 secondaryColor: accent.shade200,
                 brightness: Brightness.dark,
-                labelStyle: typography.white.bodyText1!)
+                labelStyle: typography.white.bodyLarge!)
             .copyWith(elevation: 0, pressElevation: 0),
         dividerTheme:
             const DividerThemeData(color: Color(0x1FFFFFFF), thickness: 2),
@@ -150,9 +150,31 @@ class _FastThemeScopeState extends State<FastThemeScope> {
             labelStyle: const TextStyle(fontWeight: FontWeight.bold),
             indicator: UnderlineTabIndicator(
                 borderSide: BorderSide(color: accent.shade200, width: 2))),
-        toggleableActiveColor: accent.shade200,
         colorScheme: createScheme(accent, Brightness.dark),
-        primarySwatch: accent);
+        primarySwatch: accent, checkboxTheme: CheckboxThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return accent.shade200; }
+ return null;
+ }),
+ ), radioTheme: RadioThemeData(
+ fillColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return accent.shade200; }
+ return null;
+ }),
+ ), switchTheme: SwitchThemeData(
+ thumbColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return accent.shade200; }
+ return null;
+ }),
+ trackColor: MaterialStateProperty.resolveWith<Color?>((Set<MaterialState> states) {
+ if (states.contains(MaterialState.disabled)) { return null; }
+ if (states.contains(MaterialState.selected)) { return accent.shade200; }
+ return null;
+ }),
+ ));
   }
 
   ColorScheme createScheme(
@@ -165,9 +187,7 @@ class _FastThemeScopeState extends State<FastThemeScope> {
 
     return ColorScheme(
       primary: secondary,
-      primaryVariant: isDark ? Colors.black : accentSwatch[700]!,
       secondary: secondary,
-      secondaryVariant: isDark ? Colors.tealAccent[700]! : accentSwatch[700]!,
       surface: isDark ? Colors.grey[800]! : Colors.white,
       background: isDark ? Colors.grey[700]! : accentSwatch[200]!,
       error: Colors.red[700]!,

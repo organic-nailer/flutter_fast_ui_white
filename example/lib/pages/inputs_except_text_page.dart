@@ -74,7 +74,7 @@ class _InputsExceptTextPageState extends State<InputsExceptTextPage> {
               ListTile(
                   title: Text(
                     'Radio $i',
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.titleMedium,
                   ),
                   leading: Radio(
                     value: i,

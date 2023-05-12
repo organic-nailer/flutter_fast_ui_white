@@ -46,7 +46,7 @@ class _ChipsPageState extends State<ChipsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text("Input chips (Not implemented)"),
-            Wrap(),
+            const Wrap(),
             const Divider(),
             const Text("Choice chips"),
             Wrap(

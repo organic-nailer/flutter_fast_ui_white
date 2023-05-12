@@ -17,11 +17,11 @@ class _TextFieldPageState extends State<TextFieldPage> {
         title: const Text("Text Field"),
         actions: const [ThemeSwitcher()],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
-            children: const [
+            children: [
               Text("TextField"),
               Divider(),
               FastTextField(),

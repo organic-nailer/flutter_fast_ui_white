@@ -12,7 +12,6 @@ import 'package:example/pages/tab_page.dart';
 import 'package:example/pages/text_field_page.dart';
 import 'package:example/pages/typography_page.dart';
 import 'package:example/theme/my_custom_colors.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_fast_ui_white/flutter_fast_ui_white.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -27,7 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final accent = Colors.green;
+    const accent = Colors.green;
     return FastThemeScope(
         accentColor: accent,
         themeMode: ThemeMode.system,

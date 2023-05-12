@@ -120,7 +120,7 @@ class _ButtonPageState extends State<ButtonPage> {
                     onPressed: _isDisabled ? null : () {},
                     child: const Text("Text"),
                     style: TextButton.styleFrom(
-                        primary: FastTheme.of(context).nonColoredAccent),
+                        foregroundColor: FastTheme.of(context).nonColoredAccent),
                   ),
                   const SizedBox(
                     width: 16,
@@ -129,7 +129,7 @@ class _ButtonPageState extends State<ButtonPage> {
                     onPressed: _isDisabled ? null : () {},
                     child: const Text("Outlined"),
                     style: OutlinedButton.styleFrom(
-                        primary: FastTheme.of(context).nonColoredAccent),
+                        foregroundColor: FastTheme.of(context).nonColoredAccent),
                   ),
                   const SizedBox(
                     width: 16,
@@ -138,7 +138,7 @@ class _ButtonPageState extends State<ButtonPage> {
                     onPressed: _isDisabled ? null : () {},
                     child: const Text("Elevated"),
                     style: ElevatedButton.styleFrom(
-                        primary: FastTheme.of(context).nonColoredAccent),
+                        backgroundColor: FastTheme.of(context).nonColoredAccent),
                   ),
                 ],
               )
